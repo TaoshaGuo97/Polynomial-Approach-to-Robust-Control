@@ -1,20 +1,23 @@
-% The purpose of this function is to get the sepctral factorization results
 function [Dz,Dzi] = Spectral_Factorization(az,bz)
-%  Spectral_Factorization(az,bz): The Spectral Factorization of a stable 
-%  discrete system bz/az.
-
+%  Spectral_Factorization(az,bz): The Spectral Factorization of a stable discrete system bz/az.
 %  Spectral_Factorization(az,bz) is to find the polynomial Dz and Dzi such
-%  that az(z)az(z^{-1})+bz(z)bz(z^{-1})=Dz(z)Dz(z^{-1}).
+%  that az(z)az(z^{-1})+bz(z)bz(z^{-1})=Dz(z)Dzi(z^{-1}).
 % 
 %    Input "az" and "bz" are the coefficients of their corresponding polynomials (created with vetors).
 %
 %    [Dz,Dzi,erro] = Spectral_Factorization(az,bz) returns the Dz and Dzi.
 %   
-%    
+%    An Example:
+%
+%     az=[1 4 4 ]; 
+%     bz=[0 2 1 ];
+%     [Dz,Dzi] = Spectral_Factorization(az,bz);
+%     Dz =
+%     4.5765    4.0363    0.8740
+%     Dzi =
+%     0.8740    4.0363    4.5765
 syms c
-%az=[1 4 4 ]; 
 az_i=fliplr(az);
-%bz=[0 2 1 ];
 bz_i=fliplr(bz);
 n=length(az);
 % Spactral Factorization
